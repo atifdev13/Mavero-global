@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mavero Global — Sourcing & Product Development</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --cream: #FAF8F3;
+    --warm-white: #FDFCF9;
+    --charcoal: #1A1814;
+    --charcoal-60: #6B6860;
+    --charcoal-30: #B8B5AF;
+    --gold: #B8965A;
+    --gold-light: #E8D5B0;
+    --gold-pale: #F5EED8;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--warm-white);
+    color: var(--charcoal);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 28px 80px;
+    background: rgba(253,252,249,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(184,150,90,0.12);
+  }
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: var(--charcoal);
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--gold); }
+  .nav-links { display: flex; gap: 40px; list-style: none; }
+  .nav-links a {
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--charcoal-60);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--charcoal); }
+  .nav-cta {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--charcoal);
+    border: 1px solid var(--gold);
+    padding: 10px 24px;
+    text-decoration: none;
+    transition: all 0.25s;
+  }
+  .nav-cta:hover { background: var(--gold); color: #fff; }
+
+  /* HERO */
+  #hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    padding-top: 80px;
+  }
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 60px 80px 80px;
+    position: relative;
+  }
+  .hero-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--gold);
+  }
+  .hero-h1 {
+    font-family: var(--serif);
+    font-size: clamp(40px, 4.5vw, 62px);
+    font-weight: 400;
+    line-height: 1.1;
+    color: var(--charcoal);
+    margin-bottom: 28px;
+    letter-spacing: -0.01em;
+  }
+  .hero-h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+  .hero-sub {
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--charcoal-60);
+    line-height: 1.8;
+    max-width: 380px;
+    margin-bottom: 48px;
+  }
+  .hero-buttons { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+  .btn-primary {
+    display: inline-block;
+    padding: 15px 36px;
+    background: var(--charcoal);
+    color: #fff;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.25s;
+  }
+  .btn-primary:hover { background: var(--gold); }
+  .btn-secondary {
+    display: inline-block;
+    padding: 15px 36px;
+    border: 1px solid var(--charcoal-30);
+    color: var(--charcoal);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 400;
+    text-decoration: none;
+    transition: all 0.25s;
+  }
+  .btn-secondary:hover { border-color: var(--charcoal); }
+
+  .hero-right {
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-image-bg {
+    width: 100%; height: 100%;
+    background: 
+      linear-gradient(160deg, #e8ddd0 0%, #d4c9b8 30%, #c2b49e 60%, #a89880 100%);
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+  }
+  .hero-image-pattern {
+    position: absolute; inset: 0;
+    background-image: 
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 60px,
+        rgba(255,255,255,0.04) 60px,
+        rgba(255,255,255,0.04) 61px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 60px,
+        rgba(255,255,255,0.04) 60px,
+        rgba(255,255,255,0.04) 61px
+      );
+  }
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to right, rgba(253,252,249,0.15) 0%, transparent 50%);
+  }
+  .hero-img-label {
+    position: relative; z-index: 2;
+    padding: 48px;
+    color: rgba(255,255,255,0.7);
+    font-family: var(--serif);
+    font-size: 13px;
+    font-style: italic;
+    letter-spacing: 0.05em;
+  }
+  .hero-scroll-hint {
+    position: absolute;
+    bottom: 40px; left: 80px;
+    display: flex; align-items: center; gap: 10px;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--charcoal-30);
+  }
+  .hero-scroll-hint::after {
+    content: '';
+    display: block;
+    width: 48px; height: 1px;
+    background: var(--charcoal-30);
+  }
+
+  /* SECTION COMMONS */
+  section { padding: 120px 80px; }
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .section-label::before {
+    content: '';
+    display: block; width: 24px; height: 1px;
+    background: var(--gold);
+  }
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(32px, 3.5vw, 52px);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+  .section-title em { font-style: italic; color: var(--gold); }
+
+  /* ABOUT INTRO */
+  #about {
+    background: var(--cream);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    align-items: center;
+  }
+  .about-text p {
+    margin-top: 24px;
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--charcoal-60);
+    line-height: 1.9;
+    max-width: 480px;
+  }
+  .about-text p + p { margin-top: 16px; }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    background: var(--gold-light);
+  }
+  .stat-card {
+    background: var(--warm-white);
+    padding: 48px 40px;
+  }
+  .stat-number {
+    font-family: var(--serif);
+    font-size: 56px;
+    font-weight: 300;
+    color: var(--charcoal);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .stat-number span { color: var(--gold); font-size: 32px; }
+  .stat-label {
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--charcoal-60);
+    font-weight: 400;
+  }
+
+  /* CATEGORIES */
+  #categories {
+    background: var(--warm-white);
+  }
+  .categories-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 64px;
+  }
+  .categories-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: var(--gold-light);
+  }
+  .cat-card {
+    background: var(--cream);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    group: true;
+  }
+  .cat-image {
+    width: 100%; aspect-ratio: 4/3;
+    position: relative;
+    overflow: hidden;
+  }
+  .cat-image-inner {
+    width: 100%; height: 100%;
+    transition: transform 0.6s ease;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 48px;
+  }
+  .cat-card:hover .cat-image-inner { transform: scale(1.04); }
+  .cat-body {
+    padding: 20px 24px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .cat-name {
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--charcoal);
+  }
+  .cat-arrow {
+    font-size: 18px;
+    color: var(--gold);
+    transition: transform 0.2s;
+  }
+  .cat-card:hover .cat-arrow { transform: translateX(4px); }
+
+  /* category bg fills */
+  .c1 { background: linear-gradient(135deg, #e2d8cc 0%, #c9bfaf 100%); }
+  .c2 { background: linear-gradient(135deg, #d4cbbf 0%, #bfb5a5 100%); }
+  .c3 { background: linear-gradient(135deg, #cfc4b4 0%, #bfb099 100%); }
+  .c4 { background: linear-gradient(135deg, #c8d8c0 0%, #b0c0a4 100%); }
+  .c5 { background: linear-gradient(135deg, #d8d0c8 0%, #c0b8aa 100%); }
+  .c6 { background: linear-gradient(135deg, #d8c8b8 0%, #c4b09c 100%); }
+  .c7 { background: linear-gradient(135deg, #c8d0d8 0%, #a8b4c0 100%); }
+  .c8 { background: linear-gradient(135deg, #d4c8d8 0%, #bcaec4 100%); }
+  .c9 { background: linear-gradient(135deg, #d8ccc0 0%, #c4b4a4 100%); }
+
+  /* SERVICES */
+  #services {
+    background: var(--charcoal);
+    color: var(--warm-white);
+  }
+  #services .section-label { color: var(--gold); }
+  #services .section-title { color: var(--warm-white); }
+  .services-header { margin-bottom: 72px; }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2px;
+    margin-top: 64px;
+    background: rgba(184,150,90,0.2);
+  }
+  .service-card {
+    background: #232018;
+    padding: 40px 32px 48px;
+    transition: background 0.3s;
+  }
+  .service-card:hover { background: #2a2720; }
+  .service-icon {
+    width: 48px; height: 48px;
+    border: 1px solid rgba(184,150,90,0.4);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 28px;
+    font-size: 20px;
+    color: var(--gold);
+  }
+  .service-name {
+    font-family: var(--serif);
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--warm-white);
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+  .service-desc {
+    font-size: 13px;
+    font-weight: 300;
+    color: rgba(253,252,249,0.45);
+    line-height: 1.7;
+  }
+
+  /* WHY US */
+  #why {
+    background: var(--cream);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    padding: 0;
+  }
+  .why-image {
+    min-height: 640px;
+    background: linear-gradient(160deg, #2a2420 0%, #1a1510 40%, #342c20 100%);
+    position: relative;
+    display: flex; align-items: flex-end;
+    overflow: hidden;
+  }
+  .why-image-texture {
+    position: absolute; inset: 0;
+    background-image: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 40px,
+      rgba(184,150,90,0.04) 40px,
+      rgba(184,150,90,0.04) 41px
+    );
+  }
+  .why-image-content {
+    position: relative; z-index: 2;
+    padding: 48px;
+    font-family: var(--serif);
+    font-size: 15px;
+    font-style: italic;
+    color: rgba(232,213,176,0.6);
+    letter-spacing: 0.03em;
+    line-height: 1.8;
+  }
+  .why-content {
+    padding: 120px 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .why-bullets {
+    margin-top: 40px;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .why-bullet {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgba(184,150,90,0.15);
+  }
+  .why-bullet:last-child { border-bottom: none; padding-bottom: 0; }
+  .why-bullet-num {
+    font-family: var(--serif);
+    font-size: 13px;
+    color: var(--gold);
+    margin-top: 2px;
+    min-width: 20px;
+    font-weight: 400;
+  }
+  .why-bullet-text {
+    flex: 1;
+  }
+  .why-bullet-title {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--charcoal);
+    margin-bottom: 4px;
+  }
+  .why-bullet-desc {
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--charcoal-60);
+    line-height: 1.7;
+  }
+
+  /* COLLECTIONS */
+  #collections {
+    background: var(--warm-white);
+    padding: 120px 80px;
+  }
+  .collections-header { margin-bottom: 64px; }
+  .collections-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    background: var(--gold-light);
+  }
+  .collection-card {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  .collection-card:first-child {
+    grid-row: span 2;
+  }
+  .collection-image {
+    width: 100%;
+    height: 100%;
+    min-height: 340px;
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+    transition: transform 0.7s ease;
+  }
+  .collection-card:hover .collection-image { transform: scale(1.03); }
+  .ci-1 { background: linear-gradient(160deg, #c8bdb0 0%, #a89888 100%); }
+  .ci-2 { background: linear-gradient(160deg, #b8c8c0 0%, #98a8a0 100%); }
+  .ci-3 { background: linear-gradient(160deg, #c0b8d0 0%, #a0a0b8 100%); }
+  .ci-4 { background: linear-gradient(160deg, #d0c8b0 0%, #b0a888 100%); }
+  .collection-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(26,24,20,0.75) 0%, transparent 50%);
+  }
+  .collection-label {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 32px 40px;
+    z-index: 2;
+  }
+  .collection-tag {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 8px;
+  }
+  .collection-name {
+    font-family: var(--serif);
+    font-size: 26px;
+    font-weight: 400;
+    color: #fff;
+    line-height: 1.2;
+  }
+  .collection-card:first-child .collection-name { font-size: 34px; }
+
+  /* CTA */
+  #cta {
+    background: var(--charcoal);
+    text-align: center;
+    padding: 140px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-bg-pattern {
+    position: absolute; inset: 0;
+    background-image:
+      radial-gradient(ellipse at 30% 50%, rgba(184,150,90,0.08) 0%, transparent 60%),
+      radial-gradient(ellipse at 70% 50%, rgba(184,150,90,0.06) 0%, transparent 60%);
+  }
+  .cta-label {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+    display: flex; align-items: center; justify-content: center; gap: 12px;
+  }
+  .cta-label::before, .cta-label::after {
+    content: '';
+    display: block; width: 32px; height: 1px;
+    background: var(--gold);
+  }
+  .cta-title {
+    font-family: var(--serif);
+    font-size: clamp(36px, 4vw, 58px);
+    font-weight: 400;
+    color: var(--warm-white);
+    line-height: 1.1;
+    margin-bottom: 20px;
+    position: relative;
+  }
+  .cta-title em { font-style: italic; color: var(--gold); }
+  .cta-sub {
+    font-size: 15px;
+    font-weight: 300;
+    color: rgba(253,252,249,0.5);
+    max-width: 480px;
+    margin: 0 auto 48px;
+    line-height: 1.8;
+    position: relative;
+  }
+  .cta-buttons {
+    display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+    position: relative;
+  }
+  .btn-gold {
+    display: inline-block;
+    padding: 16px 44px;
+    background: var(--gold);
+    color: #fff;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.25s;
+  }
+  .btn-gold:hover { background: #a0804a; }
+  .btn-outline-light {
+    display: inline-block;
+    padding: 16px 44px;
+    border: 1px solid rgba(253,252,249,0.25);
+    color: var(--warm-white);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 400;
+    text-decoration: none;
+    transition: all 0.25s;
+  }
+  .btn-outline-light:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* FOOTER */
+  footer {
+    background: #111009;
+    padding: 80px 80px 40px;
+    border-top: 1px solid rgba(184,150,90,0.15);
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    gap: 60px;
+    margin-bottom: 64px;
+  }
+  .footer-logo {
+    font-family: var(--serif);
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: var(--warm-white);
+    margin-bottom: 16px;
+  }
+  .footer-logo span { color: var(--gold); }
+  .footer-tagline {
+    font-size: 13px;
+    font-weight: 300;
+    color: rgba(253,252,249,0.4);
+    line-height: 1.8;
+    max-width: 280px;
+    margin-bottom: 32px;
+  }
+  .footer-social {
+    display: flex; gap: 12px;
+  }
+  .social-link {
+    width: 36px; height: 36px;
+    border: 1px solid rgba(184,150,90,0.25);
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(253,252,249,0.4);
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.2s;
+  }
+  .social-link:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+  .footer-col-title {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+    font-weight: 500;
+  }
+  .footer-links { list-style: none; }
+  .footer-links li { margin-bottom: 12px; }
+  .footer-links a {
+    font-size: 13px;
+    font-weight: 300;
+    color: rgba(253,252,249,0.45);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--warm-white); }
+  .footer-contact-item {
+    margin-bottom: 16px;
+  }
+  .contact-label {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(253,252,249,0.3);
+    margin-bottom: 4px;
+  }
+  .contact-value {
+    font-size: 13px;
+    font-weight: 300;
+    color: rgba(253,252,249,0.6);
+  }
+  .footer-bottom {
+    border-top: 1px solid rgba(184,150,90,0.1);
+    padding-top: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-copy {
+    font-size: 12px;
+    font-weight: 300;
+    color: rgba(253,252,249,0.25);
+    letter-spacing: 0.03em;
+  }
+  .footer-bottom-links {
+    display: flex; gap: 32px;
+  }
+  .footer-bottom-links a {
+    font-size: 12px;
+    font-weight: 300;
+    color: rgba(253,252,249,0.25);
+    text-decoration: none;
+    letter-spacing: 0.03em;
+    transition: color 0.2s;
+  }
+  .footer-bottom-links a:hover { color: rgba(253,252,249,0.6); }
+
+  /* DIVIDER */
+  .gold-divider {
+    width: 48px; height: 1px;
+    background: var(--gold);
+    margin: 32px 0;
+  }
+
+  /* SCROLL ANIMATIONS */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .fade-up-delay-1 { transition-delay: 0.1s; }
+  .fade-up-delay-2 { transition-delay: 0.2s; }
+  .fade-up-delay-3 { transition-delay: 0.3s; }
+  .fade-up-delay-4 { transition-delay: 0.4s; }
+  .fade-up-delay-5 { transition-delay: 0.5s; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">Mavero<span>.</span>Global</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#categories">Categories</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#collections">Collections</a></li>
+  </ul>
+  <a class="nav-cta" href="#cta">Get in Touch</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">India-Based Sourcing Partner</div>
+    <h1 class="hero-h1">
+      Global Sourcing &<br>
+      Product Development<br>
+      Partner for <em>Home &<br>
+      Lifestyle Brands</em>
+    </h1>
+    <p class="hero-sub">Trusted manufacturing &amp; sourcing network across India. Connecting global buyers with exceptional craftsmanship.</p>
+    <div class="hero-buttons">
+      <a href="#cta" class="btn-primary">Get in Touch</a>
+      <a href="#categories" class="btn-secondary">Explore Categories</a>
+    </div>
+    <div class="hero-scroll-hint">Scroll to explore</div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-image-bg">
+      <div class="hero-image-pattern"></div>
+      <div class="hero-overlay"></div>
+      <!-- Visual representation of lifestyle interior -->
+      <svg width="100%" height="100%" viewBox="0 0 860 900" preserveAspectRatio="xMidYMid slice" style="position:absolute;inset:0">
+        <!-- Floor -->
+        <rect x="0" y="640" width="860" height="260" fill="#c4b49a" opacity="0.5"/>
+        <!-- Wall -->
+        <rect x="0" y="0" width="860" height="660" fill="#d8cfc0" opacity="0.3"/>
+        <!-- Window light -->
+        <rect x="520" y="0" width="340" height="560" fill="#e8e0d0" opacity="0.25"/>
+        <line x1="690" y1="0" x2="690" y2="560" stroke="#fff" stroke-width="8" opacity="0.15"/>
+        <line x1="520" y1="280" x2="860" y2="280" stroke="#fff" stroke-width="8" opacity="0.15"/>
+        <!-- Sofa -->
+        <rect x="80" y="500" width="440" height="150" rx="6" fill="#a89878" opacity="0.7"/>
+        <rect x="80" y="440" width="440" height="80" rx="4" fill="#b8a888" opacity="0.6"/>
+        <rect x="80" y="440" width="60" height="210" rx="4" fill="#b8a888" opacity="0.6"/>
+        <rect x="460" y="440" width="60" height="210" rx="4" fill="#b8a888" opacity="0.6"/>
+        <!-- Cushions -->
+        <rect x="140" y="460" width="90" height="70" rx="8" fill="#c8b890" opacity="0.7"/>
+        <rect x="250" y="460" width="90" height="70" rx="8" fill="#d4c4a0" opacity="0.6"/>
+        <rect x="360" y="460" width="80" height="70" rx="8" fill="#c0a878" opacity="0.7"/>
+        <!-- Floor lamp -->
+        <rect x="590" y="200" width="6" height="370" rx="3" fill="#888070" opacity="0.8"/>
+        <ellipse cx="593" cy="210" rx="45" ry="20" fill="#d4c090" opacity="0.6"/>
+        <rect x="578" y="565" width="30" height="10" rx="4" fill="#888070" opacity="0.8"/>
+        <!-- Coffee table -->
+        <rect x="160" y="620" width="280" height="100" rx="4" fill="#9a8870" opacity="0.6"/>
+        <rect x="170" y="640" width="260" height="12" rx="2" fill="#b0a080" opacity="0.5"/>
+        <!-- Vase -->
+        <ellipse cx="660" cy="598" rx="22" ry="10" fill="#b89868" opacity="0.7"/>
+        <rect x="646" y="500" width="28" height="100" rx="14" fill="#c4a878" opacity="0.7"/>
+        <!-- Plants/stem -->
+        <line x1="660" y1="500" x2="640" y2="420" stroke="#7a9060" stroke-width="3" opacity="0.6"/>
+        <line x1="660" y1="500" x2="680" y2="430" stroke="#7a9060" stroke-width="3" opacity="0.6"/>
+        <line x1="660" y1="480" x2="650" y2="440" stroke="#7a9060" stroke-width="2" opacity="0.5"/>
+        <ellipse cx="638" cy="416" rx="18" ry="12" fill="#8aaa68" opacity="0.6"/>
+        <ellipse cx="682" cy="426" rx="18" ry="12" fill="#8aaa68" opacity="0.6"/>
+        <ellipse cx="648" cy="436" rx="14" ry="9" fill="#7a9a58" opacity="0.6"/>
+        <!-- Art frame -->
+        <rect x="100" y="160" width="180" height="220" rx="2" fill="#c0b4a4" opacity="0.4"/>
+        <rect x="108" y="168" width="164" height="204" rx="1" fill="#d4c8b8" opacity="0.35"/>
+        <!-- Small objects on coffee table -->
+        <ellipse cx="230" cy="626" rx="28" ry="8" fill="#b09878" opacity="0.5"/>
+        <rect x="280" y="614" width="40" height="14" rx="2" fill="#c4b090" opacity="0.5"/>
+        <!-- Rug -->
+        <ellipse cx="320" cy="680" rx="200" ry="60" fill="#b4a890" opacity="0.3"/>
+      </svg>
+      <div class="hero-img-label">Crafted living spaces, sourced with intention</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT INTRO -->
+<section id="about">
+  <div class="about-text fade-up">
+    <div class="section-label">About Mavero Global</div>
+    <h2 class="section-title">Bridging global<br>buyers with <em>India's<br>finest makers</em></h2>
+    <div class="gold-divider"></div>
+    <p>Mavero Global is a dedicated sourcing and product development partner for international home &amp; lifestyle brands. We connect global buyers with India's most capable manufacturers — handling everything from concept to delivery.</p>
+    <p>With deep relationships across supplier networks in India, we ensure quality, consistency, and on-time execution at every stage of your supply chain.</p>
+  </div>
+  <div class="stats-grid fade-up fade-up-delay-2">
+    <div class="stat-card">
+      <div class="stat-number">200<span>+</span></div>
+      <div class="stat-label">Global Buyers Served</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">500<span>+</span></div>
+      <div class="stat-label">Manufacturer Network</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">9<span></span></div>
+      <div class="stat-label">Product Categories</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">12<span>+</span></div>
+      <div class="stat-label">Years of Expertise</div>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section id="categories">
+  <div class="categories-header">
+    <div>
+      <div class="section-label">What We Source</div>
+      <h2 class="section-title fade-up">Product <em>Categories</em></h2>
+    </div>
+    <a href="#cta" class="btn-secondary" style="flex-shrink:0">View All Categories</a>
+  </div>
+  <div class="categories-grid">
+    <!-- Card 1 -->
+    <div class="cat-card fade-up">
+      <div class="cat-image"><div class="cat-image-inner c1">
+        <svg width="72" height="72" viewBox="0 0 72 72" fill="none"><rect x="10" y="28" width="52" height="30" rx="3" fill="rgba(100,80,60,0.4)"/><rect x="6" y="24" width="60" height="8" rx="2" fill="rgba(100,80,60,0.5)"/><rect x="18" y="12" width="36" height="16" rx="2" fill="rgba(100,80,60,0.35)"/><rect x="14" y="54" width="8" height="10" rx="1" fill="rgba(80,60,40,0.5)"/><rect x="50" y="54" width="8" height="10" rx="1" fill="rgba(80,60,40,0.5)"/></svg>
+      </div></div>
+      <div class="cat-body"><span class="cat-name">Home Furnishing</span><span class="cat-arrow">→</span></div>
+    </div>
+    <!-- Card 2 -->
+    <div class="cat-card fade-up fade-up-delay-1">
+      <div class="cat-image"><div class="cat-image-inner c2">
+        <svg width="72" height="72" viewBox="0 0 72 72" fill="none"><rect x="8" y="30" width="56" height="28" rx="3" fill="rgba(90,70,50,0.4)"/><rect x="4" y="26" width="64" height="7" rx="2" fill="rgba(90,70,50,0.5)"/><rect x="14" y="54" width="8" height="12" rx="1" fill="rgba(70,50,30,0.5)"/><rect x="50" y="54" width="8" height="12" rx="1" fill="rgba(70,50,30,0.5)"/><rect x="20" y="10" width="32" height="20" rx="2" fill="rgba(90,70,50,0.3)"/></svg>
+      </div></div>
+      <div class="cat-body"><span class="cat-name">Furniture</span><span class="cat-arrow">→</span></div>
+    </div>
+    <!-- Card 3 -->
+    <div class="cat-card fade-up fade-up-delay-2">
+      <div class="cat-image"><div class="cat-image-inner c3">
+        <svg width="72" height="72" viewBox="0 0 72 72" fill="none"><ellipse cx="36" cy="28" rx="16" ry="20" fill="rgba(180,160,80,0.45)"/><rect x="33" y="48" width="6" height="16" rx="3" fill="rgba(120,100,50,0.5)"/><ellipse cx="36" cy="28" rx="10" ry="13" fill="rgba(220,200,100,0.3)"/><circle cx="36" cy="20" r="4" fill="rgba(220,200,100,0.5)"/></svg>
+      </div></div>
+      <div class="cat-body"><span class="cat-name">Lighting</span><span class="cat-arrow">→</span></div>
+    </div>
+    <!-- Card 4 -->
+    <div class="cat-card fade-up">
+      <div class="cat-image"><div class="cat-image-inner c4">
+        <svg width="72" height="72" viewBox="0 0 72 72" fill="none"><rect x="6" y="52" width="60" height="8" rx="2" fill="rgba(60,90,60,0.5)"/><path d="M18 52 Q18 28 36 20 Q54 28 54 52" fill="rgba(80,120,70,0.35)"/><ellipse cx="36" cy="22" rx="12" ry="8" fill="rgba(80,130,70,0.45)"/><circle cx="22" cy="36" r="5" fill="rgba(100,140,80,0.4)"/><circle cx="50" cy="40" r="4" fill="rgba(100,140,80,0.4)"/></svg>
+      </div></div>
+      <div class="cat-body"><span class="cat-name">Outdoor & Garden</span><span class="cat-arrow">→</span></div>
+    </div>
+    <!-- Card 5 -->
+    <div class="cat-card fade-up fade-up-delay-1">
+      <div class="cat-image"><div class="cat-image-inner c5">
+        <svg width="72" height="72" viewBox="0 0 72 72" fill="none"><circle cx="36" cy="32" r="18" fill="rgba(100,90,110,0.35)"/><circle cx="36" cy="32" r="12" fill="rgba(120,100,130,0.3)"/><rect x="32" y="48" width="8" height="14" rx="4" fill="rgba(100,90,110,0.45)"/><rect x="22" y="58" width="28" height="5" rx="2" fill="rgba(80,70,90,0.4)"/></svg>
+      </div></div>
+      <div class="cat-body"><span class="cat-name">Décor Accessories</span><span class="cat-arrow">→</span></div>
+    </div>
+    <!-- Card 6 -->
+    <div class="cat-card fade-up fade-up-delay-2">
+      <div class="cat-image"><div class="cat-image-inner c6">
+        <svg width="72" height="72" viewBox="0 0 72 72" fill="none"><ellipse cx="36" cy="44" rx="24" ry="10" fill="rgba(140,100,60,0.4)"/><path d="M12 44 Q12 24 36 20 Q60 24 60 44" fill="rgba(160,120,70,0.3)"/><rect x="14" y="40" width="44" height="6" rx="2" fill="rgba(140,100,60,0.5)"/><rect x="28" y="14" width="16" height="8" rx="2" fill="rgba(120,90,50,0.4)"/></svg>
+      </div></div>
+      <div class="cat-body"><span class="cat-name">Tableware</span><span class="cat-arrow">→</span></div>
+    </div>
+    <!-- Card 7 -->
+    <div class="cat-card fade-up">
+      <div class="cat-image"><div class="cat-image-inner c7">
+        <svg width="72" height="72" viewBox="0 0 72 72" fill="none"><ellipse cx="36" cy="48" rx="22" ry="8" fill="rgba(80,100,130,0.4)"/><path d="M14 48 L20 24 L52 24 L58 48" fill="rgba(100,120,150,0.3)"/><path d="M20 24 Q22 14 36 12 Q50 14 52 24" fill="rgba(90,110,140,0.35)"/><ellipse cx="36" cy="24" rx="16" ry="5" fill="rgba(100,120,150,0.4)"/></svg>
+      </div></div>
+      <div class="cat-body"><span class="cat-name">Serveware</span><span class="cat-arrow">→</span></div>
+    </div>
+    <!-- Card 8 -->
+    <div class="cat-card fade-up fade-up-delay-1">
+      <div class="cat-image"><div class="cat-image-inner c8">
+        <svg width="72" height="72" viewBox="0 0 72 72" fill="none"><polygon points="36,10 46,30 68,33 52,48 56,70 36,59 16,70 20,48 4,33 26,30" fill="rgba(160,80,120,0.3)" stroke="rgba(160,80,120,0.5)" stroke-width="1.5"/></svg>
+      </div></div>
+      <div class="cat-body"><span class="cat-name">Seasonal Collections</span><span class="cat-arrow">→</span></div>
+    </div>
+    <!-- Card 9 -->
+    <div class="cat-card fade-up fade-up-delay-2">
+      <div class="cat-image"><div class="cat-image-inner c9">
+        <svg width="72" height="72" viewBox="0 0 72 72" fill="none"><rect x="16" y="30" width="40" height="32" rx="4" fill="rgba(120,100,80,0.35)"/><rect x="22" y="18" width="28" height="16" rx="3" fill="rgba(140,120,90,0.4)"/><rect x="30" y="10" width="12" height="10" rx="2" fill="rgba(120,100,80,0.4)"/><rect x="28" y="46" width="16" height="16" rx="2" fill="rgba(100,80,60,0.4)"/></svg>
+      </div></div>
+      <div class="cat-body"><span class="cat-name">Lifestyle Products</span><span class="cat-arrow">→</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-header">
+    <div class="section-label">What We Do</div>
+    <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-top:12px">
+      <h2 class="section-title fade-up">Our <em>Services</em></h2>
+      <p style="font-size:14px;font-weight:300;color:rgba(253,252,249,0.4);max-width:340px;line-height:1.8;text-align:right">End-to-end support from concept to delivery, tailored for international buyers.</p>
+    </div>
+  </div>
+  <div class="services-grid">
+    <div class="service-card fade-up">
+      <div class="service-icon">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      </div>
+      <div class="service-name">Product Sourcing</div>
+      <div class="service-desc">Identify and qualify the right manufacturers for your product requirements.</div>
+    </div>
+    <div class="service-card fade-up fade-up-delay-1">
+      <div class="service-icon">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      </div>
+      <div class="service-name">Product Development</div>
+      <div class="service-desc">From concept and design to prototyping and production-ready samples.</div>
+    </div>
+    <div class="service-card fade-up fade-up-delay-2">
+      <div class="service-icon">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      <div class="service-name">Vendor Management</div>
+      <div class="service-desc">Ongoing supplier relationships, compliance monitoring, and performance tracking.</div>
+    </div>
+    <div class="service-card fade-up fade-up-delay-3">
+      <div class="service-icon">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <div class="service-name">Quality Assurance</div>
+      <div class="service-desc">Pre-shipment inspections, factory audits, and certification support.</div>
+    </div>
+    <div class="service-card fade-up fade-up-delay-4">
+      <div class="service-icon">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+      </div>
+      <div class="service-name">Logistics Support</div>
+      <div class="service-desc">Export documentation, freight coordination, and customs clearance assistance.</div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section id="why">
+  <div class="why-image">
+    <div class="why-image-texture"></div>
+    <div class="why-image-content">
+      "Quality is not an act,<br>it is a habit — built into<br>every product we source."
+    </div>
+    <!-- Artisan illustration -->
+    <svg width="100%" height="100%" viewBox="0 0 600 700" preserveAspectRatio="xMidYMid slice" style="position:absolute;inset:0;opacity:0.4">
+      <rect x="0" y="0" width="600" height="700" fill="none"/>
+      <!-- Workshop table -->
+      <rect x="50" y="420" width="500" height="16" rx="4" fill="#8a7050"/>
+      <rect x="80" y="436" width="16" height="120" rx="4" fill="#7a6040"/>
+      <rect x="504" y="436" width="16" height="120" rx="4" fill="#7a6040"/>
+      <!-- Vase on table -->
+      <ellipse cx="200" cy="418" rx="28" ry="10" fill="#b08040" opacity="0.7"/>
+      <path d="M172 418 Q168 360 200 340 Q232 360 228 418" fill="#c09050" opacity="0.6"/>
+      <ellipse cx="200" cy="340" rx="12" ry="8" fill="#d0a060" opacity="0.5"/>
+      <!-- Woven basket -->
+      <ellipse cx="380" cy="412" rx="40" ry="14" fill="#a08060" opacity="0.6"/>
+      <rect x="340" y="340" width="80" height="74" rx="20" fill="#b09070" opacity="0.5"/>
+      <line x1="340" y1="360" x2="420" y2="360" stroke="#906040" stroke-width="2" opacity="0.4"/>
+      <line x1="340" y1="380" x2="420" y2="380" stroke="#906040" stroke-width="2" opacity="0.4"/>
+      <line x1="340" y1="400" x2="420" y2="400" stroke="#906040" stroke-width="2" opacity="0.4"/>
+      <!-- Person silhouette -->
+      <circle cx="300" cy="220" r="36" fill="#4a3820" opacity="0.5"/>
+      <path d="M240 420 Q240 300 300 280 Q360 300 360 420" fill="#3a2810" opacity="0.45"/>
+      <path d="M240 380 Q210 360 200 340" stroke="#3a2810" stroke-width="20" stroke-linecap="round" fill="none" opacity="0.45"/>
+      <path d="M360 380 Q390 360 400 340" stroke="#3a2810" stroke-width="20" stroke-linecap="round" fill="none" opacity="0.45"/>
+      <!-- Tools -->
+      <line x1="200" y1="340" x2="240" y2="390" stroke="#806040" stroke-width="8" stroke-linecap="round" opacity="0.6"/>
+    </svg>
+  </div>
+  <div class="why-content">
+    <div class="section-label">Why Choose Us</div>
+    <h2 class="section-title fade-up">Why Global Brands<br><em>Work With Us</em></h2>
+    <ul class="why-bullets">
+      <li class="why-bullet fade-up fade-up-delay-1">
+        <span class="why-bullet-num">01</span>
+        <div class="why-bullet-text">
+          <div class="why-bullet-title">Strong Manufacturer Network</div>
+          <div class="why-bullet-desc">Access to 500+ vetted factories across India, covering every major home & lifestyle category.</div>
+        </div>
+      </li>
+      <li class="why-bullet fade-up fade-up-delay-2">
+        <span class="why-bullet-num">02</span>
+        <div class="why-bullet-text">
+          <div class="why-bullet-title">Quality-Controlled Sourcing</div>
+          <div class="why-bullet-desc">Every supplier goes through a structured audit process before entering our network.</div>
+        </div>
+      </li>
+      <li class="why-bullet fade-up fade-up-delay-3">
+        <span class="why-bullet-num">03</span>
+        <div class="why-bullet-text">
+          <div class="why-bullet-title">End-to-End Execution</div>
+          <div class="why-bullet-desc">From product development to final delivery — one partner for the full journey.</div>
+        </div>
+      </li>
+      <li class="why-bullet fade-up fade-up-delay-4">
+        <span class="why-bullet-num">04</span>
+        <div class="why-bullet-text">
+          <div class="why-bullet-title">Reliable Export Coordination</div>
+          <div class="why-bullet-desc">Experienced in navigating international trade compliance, documentation, and timelines.</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- FEATURED COLLECTIONS -->
+<section id="collections">
+  <div class="collections-header">
+    <div class="section-label">Editorial Showcase</div>
+    <h2 class="section-title fade-up">Featured <em>Collections</em></h2>
+  </div>
+  <div class="collections-grid">
+    <div class="collection-card fade-up">
+      <div class="collection-image ci-1" style="min-height:680px">
+        <svg width="100%" height="100%" viewBox="0 0 400 680" preserveAspectRatio="xMidYMid slice" style="position:absolute;inset:0">
+          <rect x="0" y="400" width="400" height="280" fill="rgba(120,100,80,0.3)"/>
+          <rect x="40" y="280" width="200" height="200" rx="3" fill="rgba(140,110,80,0.3)"/>
+          <rect x="60" y="240" width="200" height="180" rx="3" fill="rgba(150,120,90,0.25)"/>
+          <rect x="20" y="380" width="120" height="180" rx="3" fill="rgba(160,130,100,0.3)"/>
+          <rect x="200" y="300" width="160" height="250" rx="3" fill="rgba(130,105,80,0.3)"/>
+          <ellipse cx="120" cy="395" rx="50" ry="15" fill="rgba(140,110,80,0.4)"/>
+          <rect x="80" y="250" width="80" height="150" rx="4" fill="rgba(160,130,100,0.3)"/>
+        </svg>
+      </div>
+      <div class="collection-overlay"></div>
+      <div class="collection-label">
+        <div class="collection-tag">New Season</div>
+        <div class="collection-name">Home Furnishing<br>Collection</div>
+      </div>
+    </div>
+    <div class="collection-card fade-up fade-up-delay-1">
+      <div class="collection-image ci-2" style="min-height:340px">
+        <svg width="100%" height="100%" viewBox="0 0 400 340" preserveAspectRatio="xMidYMid slice" style="position:absolute;inset:0">
+          <rect x="0" y="200" width="400" height="140" fill="rgba(80,100,80,0.3)"/>
+          <rect x="40" y="120" width="120" height="150" rx="3" fill="rgba(90,110,90,0.3)"/>
+          <ellipse cx="100" cy="200" rx="60" ry="12" fill="rgba(60,90,60,0.4)"/>
+          <rect x="240" y="100" width="140" height="180" rx="3" fill="rgba(80,100,80,0.3)"/>
+          <rect x="180" y="160" width="80" height="120" rx="2" fill="rgba(70,90,70,0.3)"/>
+        </svg>
+      </div>
+      <div class="collection-overlay"></div>
+      <div class="collection-label">
+        <div class="collection-tag">Seasonal Edit</div>
+        <div class="collection-name">Outdoor Living Series</div>
+      </div>
+    </div>
+    <div class="collection-card fade-up fade-up-delay-2">
+      <div class="collection-image ci-3" style="min-height:340px">
+        <svg width="100%" height="100%" viewBox="0 0 400 340" preserveAspectRatio="xMidYMid slice" style="position:absolute;inset:0">
+          <rect x="0" y="220" width="400" height="120" fill="rgba(100,90,120,0.3)"/>
+          <ellipse cx="200" cy="200" rx="100" ry="30" fill="rgba(120,100,140,0.35)"/>
+          <path d="M100 200 Q100 120 200 100 Q300 120 300 200" fill="rgba(110,95,130,0.3)"/>
+          <ellipse cx="200" cy="100" rx="50" ry="20" fill="rgba(130,110,150,0.4)"/>
+          <circle cx="140" cy="170" r="20" fill="rgba(140,120,160,0.35)"/>
+          <circle cx="260" cy="175" r="15" fill="rgba(140,120,160,0.35)"/>
+        </svg>
+      </div>
+      <div class="collection-overlay"></div>
+      <div class="collection-label">
+        <div class="collection-tag">Premium Range</div>
+        <div class="collection-name">Luxury Tableware Range</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="cta-bg-pattern"></div>
+  <div class="cta-label">Start a Conversation</div>
+  <h2 class="cta-title">Let's Build Your Next<br><em>Collection Together</em></h2>
+  <p class="cta-sub">Tell us your requirements and we'll handle sourcing to delivery. No complexity, just results.</p>
+  <div class="cta-buttons">
+    <a href="mailto:hello@maveroglobal.com" class="btn-gold">Send Inquiry</a>
+    <a href="https://wa.me/" class="btn-outline-light">WhatsApp Us</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <!-- Company -->
+    <div>
+      <div class="footer-logo">Mavero<span>.</span>Global</div>
+      <p class="footer-tagline">Your trusted manufacturing &amp; sourcing partner across India. Connecting global lifestyle brands with exceptional makers.</p>
+      <div class="footer-social">
+        <a class="social-link" href="#" title="LinkedIn">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+        <a class="social-link" href="#" title="Instagram">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <a class="social-link" href="#" title="Email">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </a>
+      </div>
+    </div>
+    <!-- Categories -->
+    <div>
+      <div class="footer-col-title">Categories</div>
+      <ul class="footer-links">
+        <li><a href="#">Home Furnishing</a></li>
+        <li><a href="#">Furniture</a></li>
+        <li><a href="#">Lighting</a></li>
+        <li><a href="#">Outdoor & Garden</a></li>
+        <li><a href="#">Décor Accessories</a></li>
+        <li><a href="#">Tableware</a></li>
+        <li><a href="#">Serveware</a></li>
+        <li><a href="#">Seasonal Collections</a></li>
+      </ul>
+    </div>
+    <!-- Quick Links -->
+    <div>
+      <div class="footer-col-title">Quick Links</div>
+      <ul class="footer-links">
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Our Services</a></li>
+        <li><a href="#">Featured Collections</a></li>
+        <li><a href="#">Quality Process</a></li>
+        <li><a href="#">Manufacturer Network</a></li>
+        <li><a href="#">Send Inquiry</a></li>
+        <li><a href="#">Download Catalogue</a></li>
+      </ul>
+    </div>
+    <!-- Contact -->
+    <div>
+      <div class="footer-col-title">Get in Touch</div>
+      <div class="footer-contact-item">
+        <div class="contact-label">Email</div>
+        <div class="contact-value">hello@maveroglobal.com</div>
+      </div>
+      <div class="footer-contact-item">
+        <div class="contact-label">WhatsApp</div>
+        <div class="contact-value">+91 98XXX XXXXX</div>
+      </div>
+      <div class="footer-contact-item">
+        <div class="contact-label">Based in</div>
+        <div class="contact-value">India — Sourcing globally</div>
+      </div>
+      <div class="footer-contact-item" style="margin-top:24px">
+        <a href="#cta" class="btn-gold" style="font-size:11px;padding:12px 24px">Send an Inquiry →</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2024 Mavero Global. All rights reserved.</div>
+    <div class="footer-bottom-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Use</a>
+      <a href="#">Sitemap</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
